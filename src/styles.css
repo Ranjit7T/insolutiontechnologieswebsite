@@ -1,0 +1,178 @@
+:root{
+  --primary:#0b3c5d;
+  --accent:#ff9800;
+  --light:#f4f6f8;
+  --dark:#1f2933;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Segoe UI, sans-serif;
+}
+
+/* BODY */
+body{
+  color:var(--dark);
+  line-height:1.6;
+  background:#fff;
+}
+
+/* HEADER + NAV */
+header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  z-index:1000;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav h1{
+  color:var(--primary);
+  font-size:20px;
+}
+
+.nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#444;
+  font-weight:500;
+}
+
+.nav a:hover{
+  color:var(--accent);
+}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+
+/* BADGE */
+.badge{
+  margin-top:15px;
+  display:inline-block;
+  background:#fff3e0;
+  color:#e65100;
+  padding:8px 16px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+/* BUTTONS */
+.btn{
+  
+  margin-top:30px;
+  padding:14px 30px;
+  background:var(--primary);
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+.btn.alt{
+  background:var(--accent);
+  margin-left:10px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:32px;
+  color:var(--primary);
+}
+
+.section-title p{
+  color:#666;
+  margin-top:10px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+/* CARD */
+.card{
+  background:var(--light);
+  padding:30px;
+  border-radius:10px;
+}
+
+.card h3{
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+/* HIGHLIGHT / WARNING */
+.highlight{
+  background:#fff8f8;
+  border-left:5px solid #e53935;
+  padding:20px;
+  border-radius:6px;
+  margin-top:30px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+
+footer p{
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h2{
+    font-size:30px;
+  }
+}
+/* CONTACT FORM */
+.contact-form{
+  max-width:600px;
+  margin:40px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.contact-form input,
+.contact-form textarea{
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:15px;
+}
+.contact-form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+}
