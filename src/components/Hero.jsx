@@ -12,7 +12,7 @@ export default function Hero() {
         .hero{
           max-width:1200px;
           margin:0 auto;
-          padding:120px 20px 100px;
+          padding:25px 20px 100px;
           text-align:center;
         }
 

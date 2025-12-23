@@ -4,6 +4,8 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
+    address: "",
     message: ""
   });
 
@@ -24,10 +26,11 @@ export default function Contact() {
     setError("");
     setSuccess("");
 
-    // ✅ MAP message → comments
     const payload = {
       name: form.name,
       email: form.email,
+      phone: form.phone,
+      address: form.address,
       comments: form.message
     };
 
@@ -41,7 +44,13 @@ export default function Contact() {
 
       if (data.success) {
         setSuccess("✨ Thank you. We will get back to you shortly.");
-        setForm({ name: "", email: "", message: "" });
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          address: "",
+          message: ""
+        });
       } else {
         setError("❌ Something went wrong. Please try again.");
       }
@@ -53,53 +62,65 @@ export default function Contact() {
   };
 
   return (
-    <>
-      {/* SAME PAGE CSS — KEEP AS IS */}
-      {/* (your CSS remains unchanged) */}
+    <section id="contact">
+      <div className="contact-card">
+        <div className="section-title">
+          <h2>Contact Us</h2>
+          <p className="contact-subtitle">Talk to us ranjit@insolutiontechnologies.in</p>
 
-      <section id="contact">
-        <div className="contact-card">
-          <div className="section-title">
-            <h2>Contact Us</h2>
-            <p>Talk to us before enrolling</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="contact-form">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              value={form.name}
-              onChange={handleChange}
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              value={form.email}
-              onChange={handleChange}
-            />
-
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              required
-              value={form.message}
-              onChange={handleChange}
-            />
-
-            <button className="btn" disabled={loading}>
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-
-            {success && <div className="success-msg">{success}</div>}
-            {error && <div className="error-msg">{error}</div>}
-          </form>
         </div>
-      </section>
-    </>
+
+        <form onSubmit={handleSubmit} className="contact-form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            value={form.name}
+            onChange={handleChange}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            value={form.email}
+            onChange={handleChange}
+          />
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={form.phone}
+            onChange={handleChange}
+          />
+
+          <input
+            type="text"
+            name="address"
+            placeholder="Address (optional)"
+            value={form.address}
+            onChange={handleChange}
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+            value={form.message}
+            onChange={handleChange}
+          />
+
+          <button className="btn" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+
+          {success && <div className="success-msg">{success}</div>}
+          {error && <div className="error-msg">{error}</div>}
+        </form>
+      </div>
+    </section>
   );
 }

@@ -114,21 +114,21 @@ export default function Training() {
         </p>
         <p>
           This exposure helps us shape a <strong>real-world, professional learning approach</strong>{" "}
-          — focusing on industry standards, development discipline, and practical
+           focusing on industry standards, development discipline, and practical
           confidence rather than classroom theory alone.
         </p>
 
         <div className="highlight">
           <strong>Important Transparency Note:</strong><br />
-          • This is a <strong>training-focused program</strong>, not a job<br />
+          • This is a <strong>training-focused program</strong>
           • We charge <strong>training fees only</strong><br />
           • Internship exposure is part of the learning process<br />
-          • No employment, salary, or placement is promised
+          
         </div>
 
         <div className="grid">
           <div className="card">
-            <h3>3-Month Skill Development Program</h3>
+            <h3>3 Month Skill Development Program</h3>
             <p>
               ✔ Core technical training<br />
               ✔ Guided internal projects<br />
@@ -139,7 +139,7 @@ export default function Training() {
           </div>
 
           <div className="card">
-            <h3>6-Month Advanced Skill Program</h3>
+            <h3>6 Month Advanced Skill Program</h3>
             <p>
               ✔ Advanced technical concepts<br />
               ✔ Project-based practical exposure<br />
