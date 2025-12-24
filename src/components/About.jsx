@@ -60,8 +60,8 @@ export default function About() {
         <p style={{ marginTop: "10px" }}>
           I founded <strong>Insolution Technologies</strong> to solve this problem —
           by creating an ecosystem that delivers
-          <strong> affordable, practical, and industry-relevant internships</strong>
-          guided by real professional experience.”
+          <strong> affordable, practical, and industry-relevant internships guided by real professional experience.”</strong>
+            
         </p>
 
         <p style={{ marginTop: "15px", fontWeight: "600" }}>
