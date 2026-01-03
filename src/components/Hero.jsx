@@ -107,7 +107,7 @@ export default function Hero() {
         </p>
 
         <div className="hero-badge">
-          🇮🇳 UDYAM Registered • Government of India • Skill Development Focus
+          🇮🇳 UDYAM Registered • Skill Development Focus
         </div>
 
         <div className="hero-actions">
