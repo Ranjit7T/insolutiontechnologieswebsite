@@ -366,3 +366,156 @@ footer{
   0%,95%{ opacity:1; }
   50%{ opacity:.6; }
 }
+
+/* ========================= */
+/* FOOTER TERMS & CONDITIONS */
+/* ========================= */
+.terms-button{
+  margin-top:16px;
+  padding:8px 16px;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:500;
+  font-size:14px;
+  transition:background 0.3s ease;
+}
+
+.terms-button:hover{
+  background:#f57c00;
+}
+
+.terms-modal-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+  padding:20px;
+}
+
+.terms-modal{
+  background:#fff;
+  border-radius:12px;
+  max-width:700px;
+  width:100%;
+  max-height:85vh;
+  overflow-y:auto;
+  position:relative;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+.close-button{
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:transparent;
+  border:none;
+  font-size:28px;
+  cursor:pointer;
+  color:#6b7280;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:color 0.2s ease;
+  padding:0;
+}
+
+.close-button:hover{
+  color:var(--dark);
+}
+
+.terms-content{
+  padding:40px;
+  color:var(--dark);
+}
+
+.terms-content h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:16px;
+  color:var(--primary);
+  text-align:center;
+}
+
+.company-info{
+  text-align:center;
+  margin-bottom:32px;
+  padding:16px;
+  background:var(--accent-soft);
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.terms-content section{
+  margin-bottom:24px;
+}
+
+.terms-content h3{
+  font-size:16px;
+  font-weight:600;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+.terms-content p{
+  font-size:14px;
+  line-height:1.6;
+  color:#4b5563;
+  margin-bottom:10px;
+}
+
+.terms-content ul{
+  list-style:none;
+  padding-left:0;
+  margin-top:10px;
+}
+
+.terms-content li{
+  font-size:14px;
+  color:#4b5563;
+  padding:6px 0;
+  padding-left:24px;
+  position:relative;
+}
+
+.terms-content li:before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  font-weight:bold;
+}
+
+@media (max-width:640px){
+  .terms-modal{
+    max-height:90vh;
+  }
+
+  .terms-content{
+    padding:24px;
+  }
+
+  .terms-content h2{
+    font-size:20px;
+  }
+
+  .terms-content h3{
+    font-size:15px;
+  }
+
+  .terms-content p,
+  .terms-content li{
+    font-size:13px;
+  }
+}
