@@ -22,6 +22,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     setError("");
     setSuccess("");
@@ -34,16 +35,21 @@ export default function Contact() {
       comments: form.message
     };
 
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 20000);
+
     try {
       const res = await fetch(SCRIPT_URL, {
         method: "POST",
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
 
+      if (!res.ok) throw new Error("Request failed");
       const data = await res.json();
 
       if (data.success) {
-        setSuccess("✨ Thank you. We will get back to you shortly.");
+        setSuccess("Thank you. We will get back to you shortly.");
         setForm({
           name: "",
           email: "",
@@ -52,26 +58,34 @@ export default function Contact() {
           message: ""
         });
       } else {
-        setError("❌ Something went wrong. Please try again.");
+        setError("Something went wrong. Please try again.");
       }
-    } catch {
-      setError("❌ Network error. Please try again later.");
+    } catch (requestError) {
+      setError(requestError.name === "AbortError"
+        ? "The request timed out. Please try again or email us directly."
+        : "Your message could not be sent. Please try again or email us directly.");
+    } finally {
+      window.clearTimeout(timeout);
+      setLoading(false);
     }
-
-    setLoading(false);
   };
+
+  const submitLabel = loading ? "Sending..." : "Send Message";
 
   return (
     <section id="contact">
       <div className="contact-card">
         <div className="section-title">
-          <h2>Contact Us</h2>
-          <p className="contact-subtitle">Talk to us ranjit@insolutiontechnologies.in</p>
-
+          <span className="eyebrow">LET&#8217;S MAKE IT HAPPEN</span>
+          <h2>A new project.<br /><span>A new possibility.</span></h2>
+          <p>Have a business idea or a question about our training programs? Tell us a little about yourself and what you have in mind.</p>
+          <a className="contact-email" href="mailto:ranjit@insolutiontechnologies.in">ranjit@insolutiontechnologies.in &#8599;</a>
+          <p>Based in India. Open to possibilities everywhere.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          <input
+        <form onSubmit={handleSubmit} className="contact-form" aria-busy={loading}>
+          <label htmlFor="contact-name">Your name
+          <input id="contact-name" autoComplete="name"
             type="text"
             name="name"
             placeholder="Your Name"
@@ -79,8 +93,10 @@ export default function Contact() {
             value={form.name}
             onChange={handleChange}
           />
+          </label>
 
-          <input
+          <label htmlFor="contact-email">Email address
+          <input id="contact-email" autoComplete="email"
             type="email"
             name="email"
             placeholder="Your Email"
@@ -88,24 +104,30 @@ export default function Contact() {
             value={form.email}
             onChange={handleChange}
           />
+          </label>
 
-          <input
+          <label htmlFor="contact-phone">Phone number (optional)
+          <input id="contact-phone" autoComplete="tel"
             type="tel"
             name="phone"
             placeholder="Phone Number"
             value={form.phone}
             onChange={handleChange}
           />
+          </label>
 
-          <input
+          <label htmlFor="contact-address">Address (optional)
+          <input id="contact-address" autoComplete="street-address"
             type="text"
             name="address"
             placeholder="Address (optional)"
             value={form.address}
             onChange={handleChange}
           />
+          </label>
 
-          <textarea
+          <label htmlFor="contact-message">How can we help?
+          <textarea id="contact-message" rows={4}
             name="message"
             placeholder="Your Message"
             required
@@ -113,12 +135,16 @@ export default function Contact() {
             onChange={handleChange}
           />
 
-          <button className="btn" disabled={loading}>
-            {loading ? "Sending..." : "Send Message"}
+          </label>
+          <p className="form-note">We will use these details to respond to your enquiry.</p>
+          <button type="submit" className="btn" disabled={loading} aria-label={submitLabel}>
+            {submitLabel}
+            <span aria-hidden="true">&#8599;</span>
           </button>
 
-          {success && <div className="success-msg">{success}</div>}
-          {error && <div className="error-msg">{error}</div>}
+          {loading && <div role="status" className="form-note">Sending your enquiry...</div>}
+          {success && <div role="status" className="success-msg">{success}</div>}
+          {error && <div role="alert" className="error-msg">{error}</div>}
         </form>
       </div>
     </section>

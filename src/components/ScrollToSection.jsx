@@ -10,9 +10,8 @@ export default function ScrollToSection() {
       const el = document.getElementById(id);
 
       if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        const reduceMotion = typeof window.matchMedia !== "function" || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       }
     } else {
       window.scrollTo(0, 0);

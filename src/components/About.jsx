@@ -6,7 +6,7 @@ export default function About() {
 
       {/* PAGE HEADER */}
       <div className="section-title">
-        <h2>About Insolution Technologies</h2>
+        <h1>About Insolution Technologies</h1>
         <p>
           Empowering students with affordable, practical, and career-focused
           internship programs designed for real-world success.
@@ -16,7 +16,7 @@ export default function About() {
       {/* WHO WE ARE + VISION */}
       <div className="grid">
         <div className="card">
-          <h3>Who We Are</h3>
+          <h2>Who We Are</h2>
           <p>
             Insolution Technologies is built on one strong belief —
             <strong> quality learning should be accessible to everyone</strong>.
@@ -29,7 +29,7 @@ export default function About() {
         </div>
 
         <div className="card">
-          <h3>Our Vision</h3>
+          <h2>Our Vision</h2>
           <p>
             To help students gain <strong>confidence, clarity, and career readiness</strong>
             through affordable and industry-aligned learning experiences.
@@ -43,7 +43,7 @@ export default function About() {
 
       {/* FOUNDER MESSAGE */}
       <div className="highlight">
-        <h3>Founder’s Message</h3>
+        <h2>Founder’s Message</h2>
 
         <p style={{ marginTop: "10px" }}>
           “During my professional journey as a <strong>Senior Software Developer</strong>,
@@ -76,11 +76,11 @@ export default function About() {
         <span className="badge">Start Your Career With Confidence</span>
         <div>
           {/* ✅ FIXED LINKS (WORK FROM /about) */}
-          <NavLink to="/#training" className="btn">
+          <NavLink to="/training/" className="btn">
             Explore Internships
           </NavLink>
 
-          <NavLink to="/#contact" className="btn alt">
+          <NavLink to="/contact/" className="btn alt">
             Talk to Us
           </NavLink>
         </div>
